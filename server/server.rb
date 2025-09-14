@@ -1,9 +1,12 @@
 # server.rb
 require 'em-websocket'
 require 'logger'
+require 'json'
 
 # Enable unbuffered stdout in development to work with foreman:
 $stdout.sync = true
+
+KEY_MAPPING = JSON.parse(File.read('key_mapping.json'))
 
 # Setup a Foreman-friendly logger
 logger = Logger.new(STDOUT)
@@ -24,7 +27,8 @@ EventMachine.run do
     end
 
     ws.onmessage do |msg|
-      logger.info "Received message: #{msg}"
+      cmd = KEY_MAPPING[msg]
+      logger.info "Received message: #{msg} (#{cmd})"
     end
 
     ws.onclose do
