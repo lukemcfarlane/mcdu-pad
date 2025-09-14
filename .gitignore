@@ -4,3 +4,5 @@
 # Ruby
 .bundle/
 Gemfile.lock
+
+.env
