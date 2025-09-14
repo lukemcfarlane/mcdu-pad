@@ -13,7 +13,10 @@ ws.onerror = (err) => {
     console.error("WebSocket error:", err);
 };
 
-document.getElementById("sendBtn").addEventListener("click", () => {
-    ws.send("Hello from the browser!");
-    console.log("Message sent");
+const allBtns = Array.from(document.querySelectorAll('button'));
+allBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        ws.send("Hello from the browser!");
+        console.log("Message sent");
+    })
 });

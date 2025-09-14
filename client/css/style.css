@@ -1,0 +1,25 @@
+body {
+    font-family: monospace;
+    background: #222;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.mcdu {
+    display: grid;
+    grid-template-columns: 60px 60px 60px 60px 60px;
+    grid-gap: 5px;
+}
+
+.mcdu button {
+    width: 60px;
+    height: 60px;
+    background: #444;
+    border: 1px solid #666;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
