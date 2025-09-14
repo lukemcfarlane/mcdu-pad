@@ -6,7 +6,8 @@ require 'json'
 # Enable unbuffered stdout in development to work with foreman:
 $stdout.sync = true
 
-KEY_MAPPING = JSON.parse(File.read('key_mapping.json'))
+KEY_MAPPING_FILENAME = 'key_mapping.json'
+KEY_MAPPING = JSON.parse(File.read(KEY_MAPPING_FILENAME))
 
 udp_socket = UDPSocket.new
 
@@ -30,7 +31,11 @@ EventMachine.run do
 
     ws.onmessage do |msg|
       cmd = KEY_MAPPING[msg]
-      next if cmd.nil?
+
+      if cmd.nil?
+        logger.error "No mapping for '#{msg}', check #{KEY_MAPPING_FILENAME}"
+        next
+      end
 
       logger.info "Sending command: #{cmd}"
       puts "Sending '#{cmd}'"
