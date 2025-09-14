@@ -15,8 +15,11 @@ ws.onerror = (err) => {
 
 const allBtns = Array.from(document.querySelectorAll('button'));
 allBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        ws.send("Hello from the browser!");
-        console.log("Message sent");
+    btn.addEventListener("click", e => {
+        const el = e.target
+        const msg = el.dataset.key
+
+        ws.send(msg)
+        console.log(`Message sent: ${msg}`)
     })
 });
