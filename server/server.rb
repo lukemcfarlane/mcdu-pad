@@ -8,6 +8,8 @@ $stdout.sync = true
 
 KEY_MAPPING = JSON.parse(File.read('key_mapping.json'))
 
+udp_socket = UDPSocket.new
+
 # Setup a Foreman-friendly logger
 logger = Logger.new(STDOUT)
 logger.level = Logger::INFO
@@ -28,7 +30,11 @@ EventMachine.run do
 
     ws.onmessage do |msg|
       cmd = KEY_MAPPING[msg]
-      logger.info "Received message: #{msg} (#{cmd})"
+      next if cmd.nil?
+
+      logger.info "Sending command: #{cmd}"
+      puts "Sending '#{cmd}'"
+      udp_socket.send "CMND\0#{cmd}", 0, '127.0.0.1', 49000
     end
 
     ws.onclose do
