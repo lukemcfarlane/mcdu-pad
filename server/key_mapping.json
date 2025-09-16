@@ -35,6 +35,8 @@
   "keyX": "AirbusFBW/MCDU1KeyX",
   "keyY": "AirbusFBW/MCDU1KeyY",
   "keyZ": "AirbusFBW/MCDU1KeyZ",
-  "keyClear": "AirbusFBW/MCDU1KeyClear",
-  "keySlash": "AirbusFBW/MCDU1KeySlash"
+  "keySlash": "AirbusFBW/MCDU1KeySlash",
+  "keySpace": "AirbusFBW/MCDU1KeySpace",
+  "keyOverfly": "AirbusFBW/MCDU1KeyOverfly",
+  "keyClear": "AirbusFBW/MCDU1KeyClear"
 }
