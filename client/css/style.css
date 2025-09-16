@@ -2,19 +2,51 @@ body {
     font-family: monospace;
     background: #222;
     color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+}
+
+main {
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    margin: 0;
 }
 
 .mcdu {
-    display: grid;
-    grid-template-columns: 60px 60px 60px 60px 60px;
-    grid-gap: 5px;
+    position: relative;
+    aspect-ratio: 971 / 1500;
+
+    /* scale to fit viewport without overflowing */
+    width: min(100vw, 100vh * (971 / 1500));
+    height: auto;
+
+    background-image: url('../assets/a320_mcdu.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;  /* exactly match div */}
+
+.keypad {
+    display: none;
+    /*display: grid;*/
+    /*grid-template-columns: 60px 60px 60px 60px 60px;*/
+    /*grid-gap: 5px;*/
+}
+
+.keypad--numeric {
+}
+
+.keypad--alpha {
 }
 
 .mcdu button {
+    opacity: 50%;
     width: 60px;
     height: 60px;
     background: #444;
