@@ -58,13 +58,15 @@ main {
 }
 
 .mcdu button {
-    opacity: 100%;
-    /*width: 60px;*/
-    /*height: 60px;*/
     background: transparent;
     border: 1px solid transparent;
-    color: rgba(0, 0, 0, 0.21);
+    color: transparent;
     font-size: 16px;
     cursor: pointer;
     padding: 0;
+
+    &:active {
+        opacity: 50%;
+        background: #303030;
+    }
 }
